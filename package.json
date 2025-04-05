@@ -9,7 +9,8 @@
   "type": "module",
   "bin": {
     "add": "./bin/task_add.js",
-    "list": "./bin/task_list.js"
+    "list": "./bin/task_list.js",
+    "update": "./bin/task_update.js"
   },
   "keywords": [],
   "author": "",
