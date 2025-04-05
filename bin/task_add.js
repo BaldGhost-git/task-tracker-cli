@@ -22,7 +22,6 @@ const addTask = (desc) => {
         throw err;
       }
     } else {
-      const data = fs.readFileSync(filePath);
       const tasks = JSON.parse(data);
       const newTask = new Task(tasks[tasks.length - 1].id + 1, desc);
       tasks.push(newTask);
