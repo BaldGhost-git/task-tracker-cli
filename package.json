@@ -8,7 +8,8 @@
   },
   "type": "module",
   "bin": {
-    "add": "./bin/task_add.js"
+    "add": "./bin/task_add.js",
+    "list": "./bin/task_list.js"
   },
   "keywords": [],
   "author": "",
