@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
+  "bin": {
+    "add": "./bin/task_add.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@inquirer/prompts": "^7.4.1"
+    "@inquirer/prompts": "^7.4.1",
+    "luxon": "^3.6.1"
   }
 }
