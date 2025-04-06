@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Task } from "../task_model.js";
+import { parseJsonToTasks, Task } from "../task_model.js";
 import fs from "fs";
 
 const addTask = (desc) => {
@@ -22,8 +22,8 @@ const addTask = (desc) => {
         throw err;
       }
     } else {
-      const tasks = JSON.parse(data);
-      const newTask = new Task(tasks[tasks.length - 1].id + 1, desc);
+      const tasks = parseJsonToTasks(data);
+      const newTask = new Task(tasks.length == 0 ? 1 : tasks[tasks.length - 1].id + 1, desc);
       tasks.push(newTask);
       const newData = JSON.stringify(tasks, null, 2);
       fs.writeFileSync(filePath, newData);

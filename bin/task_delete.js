@@ -5,7 +5,7 @@ import { parseJsonToTasks } from "../task_model.js";
 
 const filePath = "task.json";
 
-const updateTask = (id, newDesc) => {
+const deleteTask = (id) => {
   if (isNaN(id)) {
     console.error("id needs to be number");
     process.exit(1);
@@ -26,19 +26,16 @@ const updateTask = (id, newDesc) => {
       }
     } else {
       const tasks = parseJsonToTasks(data);
-      const [ oldTask ] = tasks.filter((task) => task.id == id);
-      if (!oldTask) {
-        console.error("No task found");
+      if (tasks.length == 0) {
+        console.error("You have no tasks");
         process.exit(1);
       }
-      const index = tasks.indexOf(oldTask);
-      oldTask.update(newDesc)
-      tasks[index] = oldTask;
-      fs.writeFileSync(filePath, JSON.stringify(tasks, null, 2));
-      console.log(`Task updated successfully (ID: ${id})`);
+      const newTask = tasks.filter((task) => task.id != id);
+      fs.writeFileSync(filePath, JSON.stringify(newTask, null, 2));
+      console.log(`Task deleted successfully`);
     }
   });
 };
 
-const [id, newDesc] = process.argv.slice(2);
-updateTask(id, newDesc);
+const [id] = process.argv.slice(2);
+deleteTask(id);

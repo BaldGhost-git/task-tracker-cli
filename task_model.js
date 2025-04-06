@@ -1,5 +1,3 @@
-import { DateTime } from "luxon";
-
 /**
  * Enum for task statuses.
  * @readonly
@@ -12,12 +10,26 @@ const TaskStatus = Object.freeze({
 });
 
 class Task {
-  constructor(id = 1, description = "", status = TaskStatus.TODO.name) {
+  constructor(id = 1, description = "", status = TaskStatus.TODO.name, createdAt = new Date().toISOString(), updatedAt) {
+    this.id = id;
     this.description = description;
     this.status = status;
-    this.createdAt = DateTime.now().toISO();
-    this.id = id;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+  }
+
+  update(description = undefined) {
+    this.description = description ?? this.description;
+    if (description) this.updatedAt = new Date().toISOString();
   }
 }
 
-export { Task, TaskStatus };
+const parseJsonToTasks = (jsonString) => {
+  const list = JSON.parse(jsonString);
+  const tasks = list.map((element) => {
+    return new Task(element.id, element.description, element.status, element.createdAt, element.updatedAt);
+  })
+  return tasks;
+}
+
+export { Task, TaskStatus, parseJsonToTasks };

@@ -10,13 +10,14 @@
   "bin": {
     "add": "./bin/task_add.js",
     "list": "./bin/task_list.js",
-    "update": "./bin/task_update.js"
+    "update": "./bin/task_update.js",
+    "delete": "./bin/task_delete.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@inquirer/prompts": "^7.4.1",
+    "eslint": "^9.24.0",
     "luxon": "^3.6.1"
   }
 }
