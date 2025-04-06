@@ -11,7 +11,8 @@
     "add": "./bin/task_add.js",
     "list": "./bin/task_list.js",
     "update": "./bin/task_update.js",
-    "delete": "./bin/task_delete.js"
+    "delete": "./bin/task_delete.js",
+    "mark": "./bin/task_mark_status.js"
   },
   "keywords": [],
   "author": "",

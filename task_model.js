@@ -4,13 +4,13 @@
  * @enum {{name: string}}
  */
 const TaskStatus = Object.freeze({
-  TODO: { name: "todo" },
-  IN_PROGRESS: { name: "in-progress" },
-  DONE: { name: "done" },
+  TODO: "todo",
+  IN_PROGRESS: "in-progress",
+  DONE: "done",
 });
 
 class Task {
-  constructor(id = 1, description = "", status = TaskStatus.TODO.name, createdAt = new Date().toISOString(), updatedAt) {
+  constructor(id = 1, description = "", status = TaskStatus.TODO, createdAt = new Date().toISOString(), updatedAt) {
     this.id = id;
     this.description = description;
     this.status = status;
@@ -18,9 +18,10 @@ class Task {
     this.updatedAt = updatedAt;
   }
 
-  update(description = undefined) {
+  update(description = undefined, status = undefined) {
     this.description = description ?? this.description;
-    if (description) this.updatedAt = new Date().toISOString();
+    this.status = status ?? this.status;
+    if (description || status) this.updatedAt = new Date().toISOString();
   }
 }
 

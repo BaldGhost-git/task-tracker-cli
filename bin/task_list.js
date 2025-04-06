@@ -3,7 +3,7 @@
 import { TaskStatus } from "../task_model.js";
 import fs from "fs";
 
-let availableStatus = Object.values(TaskStatus).map((status) => status.name);
+let availableStatus = Object.values(TaskStatus);
 
 const readTasks = (status = undefined) => {
   const data = fs.readFileSync("task.json");
