@@ -1,20 +1,16 @@
 {
-  "name": "task-tracker-cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "task-tracker",
+  "version": "1.0.1",
+  "description": "A simple task tracking tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "bin": {
-    "add": "./bin/task_add.js",
-    "list": "./bin/task_list.js",
-    "update": "./bin/task_update.js",
-    "delete": "./bin/task_delete.js",
-    "mark": "./bin/task_mark_status.js"
+    "task-tracker": "./index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "BaldGhost",
   "license": "ISC"
 }

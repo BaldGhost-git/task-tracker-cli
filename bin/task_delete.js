@@ -5,7 +5,7 @@ import { parseJsonToTasks } from "../task_model.js";
 
 const filePath = "task.json";
 
-const deleteTask = (id) => {
+export function deleteTask(id) {
   if (isNaN(id)) {
     console.error("id needs to be number");
     process.exit(1);
@@ -36,6 +36,3 @@ const deleteTask = (id) => {
     }
   });
 };
-
-const [id] = process.argv.slice(2);
-deleteTask(id);

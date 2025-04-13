@@ -5,7 +5,7 @@ import fs from "fs";
 
 let availableStatus = Object.values(TaskStatus);
 
-const readTasks = (status = undefined) => {
+export function readTasks(status = undefined) {
   const data = fs.readFileSync("task.json");
   const tasks = JSON.parse(data);
   if (status) {
@@ -21,6 +21,3 @@ const readTasks = (status = undefined) => {
     console.log(tasks);
   }
 };
-
-const args = process.argv.slice(2);
-readTasks(args[0]);

@@ -5,7 +5,7 @@ import { parseJsonToTasks } from "../task_model.js";
 
 const filePath = "task.json";
 
-const updateTask = (id, newDesc) => {
+export function updateTask (id, newDesc) {
   if (isNaN(id)) {
     console.error("id needs to be number");
     process.exit(1);
@@ -39,6 +39,3 @@ const updateTask = (id, newDesc) => {
     }
   });
 };
-
-const [id, newDesc] = process.argv.slice(2);
-updateTask(id, newDesc);

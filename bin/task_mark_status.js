@@ -7,7 +7,7 @@ const filePath = "task.json";
 
 const availableStatus = Object.values(TaskStatus).filter((status) => status != TaskStatus.TODO)
 
-const markTask = (id, status) => {
+export function markTask(id, status) {
   if (isNaN(id)) {
     console.error("id needs to be number");
     process.exit(1);
@@ -52,6 +52,3 @@ const markTask = (id, status) => {
     });
   }
 };
-
-const [id, status] = process.argv.slice(2);
-markTask(id, status);

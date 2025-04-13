@@ -3,7 +3,7 @@
 import { parseJsonToTasks, Task } from "../task_model.js";
 import fs from "fs";
 
-const addTask = (desc) => {
+export function addTask(desc) {
   if (!desc || desc.length == 0 ) {
     console.error("Can't add a new task with empty description");
     process.exit(1);
@@ -35,6 +35,3 @@ const addTask = (desc) => {
     }
   });
 };
-
-const args = process.argv.slice(2);
-addTask(args[0]);
