@@ -4,6 +4,10 @@ import { parseJsonToTasks, Task } from "../task_model.js";
 import fs from "fs";
 
 const addTask = (desc) => {
+  if (!desc || desc.length == 0 ) {
+    console.error("Can't add a new task with empty description");
+    process.exit(1);
+  }
   const filePath = "task.json";
 
   fs.readFile(filePath, (err, data) => {
