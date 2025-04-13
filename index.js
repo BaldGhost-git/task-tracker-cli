@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import {argv} from "node:process";
-import { addTask } from './bin/task_add.js';
-import { deleteTask } from './bin/task_delete.js';
-import { readTasks } from './bin/task_list.js';
-import { markTask } from './bin/task_mark_status.js';
-import { updateTask } from './bin/task_update.js';
+import { argv } from "node:process";
+import { addTask } from "./bin/task_add.js";
+import { deleteTask } from "./bin/task_delete.js";
+import { readTasks } from "./bin/task_list.js";
+import { markTask } from "./bin/task_mark_status.js";
+import { updateTask } from "./bin/task_update.js";
 
 const command = argv[2];
 
@@ -28,10 +28,10 @@ switch (command) {
   case "mark":
     const [j, status] = argv.slice(3);
     markTask(j, status);
-    require("./bin/task_mark_status.js");
     break;
+  case undefined:
   case "help":
-    defauilt: console.log(`
+    console.log(`
     ===============================
             Task Tracker CLI 📋
     ===============================
@@ -58,6 +58,8 @@ switch (command) {
     
         update <taskId> <newTask>   Update the task content
                                     Example: task-tracker update 4 "Buy groceries and cook dinner"
+        
+        help                        Output this help page
     
     Notes:
         - Task IDs are shown in the list command output.
@@ -66,4 +68,9 @@ switch (command) {
     Happy tracking! ✅
     `);
     break;
+  default:
+    console.error(
+      `${command}: command not found\n try "task-tracker help" to see list of commands`
+    );
+    process.exit(1);
 }
