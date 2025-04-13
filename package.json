@@ -16,9 +16,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "eslint": "^9.24.0",
-    "luxon": "^3.6.1"
-  }
+  "license": "ISC"
 }
